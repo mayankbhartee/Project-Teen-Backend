@@ -1,0 +1,2 @@
+import { describe,it,expect } from 'vitest'; import { buildRecommendations } from './recommendationService.js';
+describe('recommendation rules',()=>{it('warns when a budget is exceeded',()=>{const result=buildRecommendations({budgets:[{category_id:'food',amount:100,categories:{name:'Food'}}],category:[{category_id:'food',total:120}],allowance:500,monthSpent:120,expenses:[]});expect(result.some(x=>x.type==='budget_exceeded')).toBe(true);});});
